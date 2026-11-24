@@ -1,0 +1,19 @@
+# Model weights
+models/
+
+# Generated assets and uploads
+output/
+input/
+
+# Custom nodes (reinstall via ComfyUI-Manager)
+custom_nodes/
+
+# User settings and Manager state
+user/
+
+# Python / OS cruft
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.env

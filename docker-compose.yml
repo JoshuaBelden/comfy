@@ -1,0 +1,22 @@
+services:
+  comfyui:
+    build: .
+    image: comfyui-local
+    container_name: comfyui
+    ports:
+      - "127.0.0.1:8188:8188"
+    volumes:
+      - ./models:/opt/ComfyUI/models
+      - ./custom_nodes:/opt/ComfyUI/custom_nodes
+      - ./input:/opt/ComfyUI/input
+      - ./output:/opt/ComfyUI/output
+      - ./user:/opt/ComfyUI/user
+    shm_size: "8gb"
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
